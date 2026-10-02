@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KineticQuiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f9;--white:#fff;--ink:#11131b;--muted:#697180;--line:#dfe2e8;--purple:#6b4cff;--purple-light:#eeeaff;--green:#13885c;--green-light:#e8f8f0;--red:#d54848;--red-light:#fff0f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}.site-header{height:72px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:sticky;top:0;z-index:50}.wordmark{font-family:"Space Grotesk";font-size:14px;font-weight:700;letter-spacing:.09em;color:var(--ink);text-decoration:none}.wordmark span{color:var(--purple)}nav{display:flex;align-items:center;gap:27px}nav a,.nav-button{font:inherit;font-size:12px;color:#525966;text-decoration:none;background:none;border:0;cursor:pointer}.nav-button:hover,nav a:hover{color:var(--purple)}
+main{max-width:1060px;margin:auto}.hero{min-height:445px;display:grid;grid-template-columns:1fr 300px;gap:50px;align-items:center;padding:58px 0 48px}.eyebrow,.section-label{color:var(--purple);font-size:10px;font-weight:700;letter-spacing:.19em}.hero h1{font-family:"Space Grotesk";font-size:59px;line-height:.98;letter-spacing:-.055em;margin:20px 0 23px}.hero h1 span{color:var(--purple)}.hero p{max-width:670px;color:var(--muted);font-size:15px;line-height:1.7}.hero-stat{background:var(--ink);color:#fff;border-radius:22px;padding:35px 30px;min-height:222px;box-shadow:0 20px 45px #11131b16}.hero-stat strong{font-family:"Space Grotesk";font-size:55px;display:block}.hero-stat span{font-size:12px}.stat-line{height:1px;background:#373a42;margin:25px 0 18px}.hero-stat small{font-size:11px;color:#d3d5da}.hero-stat b{color:#fff;margin-left:5px}
+.section{padding:42px 0}.section h2{font-family:"Space Grotesk";font-size:32px;letter-spacing:-.035em;margin:17px 0 27px}.assessment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.assessment-card{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:25px 23px 23px;min-height:267px;display:flex;flex-direction:column;box-shadow:0 8px 20px #15172005}.card-number{color:var(--purple);font-size:10px;font-weight:700;letter-spacing:.12em}.assessment-card h3{font-family:"Space Grotesk";font-size:20px;line-height:1.1;margin:24px 0 12px}.assessment-card p{color:var(--muted);font-size:12px;line-height:1.55;margin:0 0 20px}.start-mode{margin-top:auto;background:var(--ink);color:#fff;border:0;border-radius:9px;padding:12px;font-weight:700;font-family:inherit;cursor:pointer}.start-mode:hover{background:#2a2d36}.start-mode span{float:right}.lower-section{border-top:1px solid var(--line);margin-top:20px}.split-heading{display:flex;justify-content:space-between;align-items:end;gap:30px}.split-heading h2{margin-bottom:7px}.split-heading p{margin:0;color:var(--muted);font-size:13px}.loaded-stat{text-align:right}.loaded-stat strong{display:block;font-family:"Space Grotesk";font-size:28px}.loaded-stat span{font-size:11px;color:var(--muted)}.upload-box{margin-top:25px;background:var(--white);border:1px dashed #c8ccd5;border-radius:17px;padding:42px;text-align:center;transition:.2s}.upload-box.drag{background:var(--purple-light);border-color:var(--purple)}.upload-symbol{margin:auto;width:42px;height:42px;background:var(--purple-light);color:var(--purple);border-radius:11px;display:grid;place-items:center;font-size:21px;font-weight:700}.upload-box h3{font-family:"Space Grotesk";margin:15px 0 5px}.upload-box p{font-size:12px;color:var(--muted)}.upload-box button{background:var(--ink);color:#fff;border:0;border-radius:8px;padding:10px 15px;font-weight:700;cursor:pointer}.upload-box #uploadStatus{min-height:18px;color:var(--green);font-size:11px;margin-top:13px}.sample-row{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:13px;font-size:11px;color:var(--muted)}.sample-row button{border:0;background:none;color:var(--purple);font-weight:700;cursor:pointer}.plain-btn{border:0;background:none;color:var(--muted);font-family:inherit;font-weight:600;cursor:pointer}.plain-btn:hover{color:var(--ink)}.bank-preview{border-top:1px solid var(--line)}.dark-btn{background:var(--ink);color:#fff;border:0;border-radius:9px;padding:12px 16px;font-weight:700;font-family:inherit;cursor:pointer}.dark-btn:hover{background:#2b2e36}.bank-preview #previewList{display:grid;gap:8px}.preview-item{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:13px;font-size:12px}.preview-item b{color:var(--purple);margin-right:9px}.notes-section{border-top:1px solid var(--line)}.notes-section p{color:var(--muted);font-size:13px}.notes-section textarea{width:100%;min-height:180px;border:1px solid var(--line);border-radius:14px;padding:15px;font:14px/1.6 inherit;resize:vertical;background:var(--white);color:var(--ink);outline:none}.notes-section textarea:focus{border-color:#aaa0ff}
+.hidden{display:none!important}
+.quiz-screen{padding:25px 0 70px}.quiz-header{height:55px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center}.quiz-header>div:nth-child(2){text-align:center}.quiz-header b{display:block;font-family:"Space Grotesk";font-size:14px}.quiz-header span{font-size:11px;color:var(--muted)}.live-score{text-align:right}.live-score small{font-size:9px;color:var(--muted);display:block;letter-spacing:.12em}.live-score strong{font-family:"Space Grotesk";font-size:20px}.quiz-progress{height:4px;background:var(--line);border-radius:4px;margin-bottom:20px}.quiz-progress i{display:block;height:100%;background:var(--purple);width:0;border-radius:4px}.quiz-body{display:grid;grid-template-columns:180px 1fr;gap:18px}.question-nav{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px;height:max-content;position:sticky;top:90px}.nav-title{display:flex;justify-content:space-between;font-size:11px;margin-bottom:12px}.nav-title span{color:var(--muted)}#questionPalette{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.palette-btn{height:31px;border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink);font-size:10px;cursor:pointer}.palette-btn.current{background:var(--ink);color:#fff;border-color:var(--ink)}.palette-btn.answered{background:var(--purple-light);border-color:#b8adff;color:var(--purple)}.question-panel{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:35px 38px;min-height:520px}.question-meta{display:flex;justify-content:space-between;align-items:center}.question-meta span:first-child{background:var(--purple-light);color:var(--purple);font-size:9px;font-weight:700;letter-spacing:.1em;padding:6px 8px;border-radius:6px}.question-meta span:last-child{font-size:11px;color:var(--muted)}.question-panel h1{font-family:"Space Grotesk";font-size:29px;line-height:1.3;letter-spacing:-.025em;margin:22px 0 8px}.question-panel>p{color:var(--muted);font-size:12px;margin-bottom:22px}.option{width:100%;border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:10px;padding:13px;text-align:left;font:13px inherit;display:flex;gap:12px;align-items:center;margin:8px 0;cursor:pointer}.option:hover:not(:disabled){border-color:#aaa0ff;background:#faf9ff}.option .key{width:27px;height:27px;border-radius:7px;background:#f0f1f4;display:grid;place-items:center;font-size:10px;font-weight:700;flex:none}.option.selected{border:2px solid var(--purple);background:var(--purple-light);padding:12px}.option.correct{border:2px solid var(--green);background:var(--green-light);padding:12px}.option.correct .key{background:var(--green);color:#fff}.option.wrong{border:2px solid var(--red);background:var(--red-light);padding:12px}.option.wrong .key{background:var(--red);color:#fff}.feedback{margin-top:15px;padding:13px;border-radius:9px;font-size:12px;line-height:1.55}.feedback.good{background:var(--green-light);color:var(--green)}.feedback.bad{background:var(--red-light);color:var(--red)}.question-actions{display:flex;justify-content:space-between;margin-top:27px}
+.result-screen{padding:80px 0}.result-screen>h1{font-family:"Space Grotesk";font-size:50px;margin:17px 0 30px}.result-card{display:grid;grid-template-columns:repeat(4,1fr);background:var(--ink);color:#fff;border-radius:18px;padding:30px}.result-card div{border-right:1px solid #343740;padding:0 25px}.result-card div:first-child{padding-left:0}.result-card div:last-child{border:0}.result-card small{font-size:9px;color:#aeb3bd;letter-spacing:.12em}.result-card strong{display:block;font-family:"Space Grotesk";font-size:28px;margin-top:9px}.result-actions{text-align:right;margin-top:18px}.review-screen{padding:55px 0}.review-screen h1{font-family:"Space Grotesk";font-size:45px;margin:15px 0 25px}.review-list{display:grid;gap:13px}.review-card{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:19px}.review-card.wrong{border-left-color:var(--red)}.review-card h3{font-family:"Space Grotesk";font-size:15px;margin:0}.review-status{float:right;font-size:10px}.good{color:var(--green)}.bad{color:var(--red)}.review-option{padding:9px 11px;border-radius:7px;background:#f7f8fa;margin-top:6px;font-size:12px}.review-option.correct{background:var(--green-light)}.review-option.chosen-wrong{background:var(--red-light)}.review-explanation{margin-top:10px;background:#f5f6f8;padding:11px;border-radius:7px;font-size:11px;color:var(--muted);line-height:1.5}.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;padding:11px 14px;border-radius:9px;font-size:12px;opacity:0;transform:translateY(8px);transition:.2s;z-index:100}.toast.show{opacity:1;transform:none}
+@media(max-width:850px){main{padding:0 22px}.hero{grid-template-columns:1fr}.hero-stat{max-width:300px}.assessment-grid{grid-template-columns:repeat(2,1fr)}.quiz-body{grid-template-columns:1fr}.question-nav{position:static}.result-card{grid-template-columns:repeat(2,1fr);gap:22px}.result-card div:nth-child(2){border:0}nav{gap:12px}nav a{display:none}}@media(max-width:600px){.site-header{padding:0 20px}.hero{padding-top:45px}.hero h1{font-size:44px}.assessment-grid{grid-template-columns:1fr}.split-heading{display:block}.loaded-stat{text-align:left;margin-top:15px}.sample-row{flex-wrap:wrap}.question-panel{padding:24px 20px}.result-card{grid-template-columns:1fr}.result-card div{border:0;padding:0}.quiz-header{grid-template-columns:1fr 1fr}.quiz-header>div:nth-child(2){text-align:right}.quiz-header .live-score{display:none}.review-screen h1{font-size:35px}}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="wordmark" href="#" id="homeLink">KINETIC<span>QUIZ</span></a>
+  <nav>
+    <a href="#assessments">Assessments</a>
+    <a href="#question-bank">Question Bank</a>
+    <a href="#notes">Notes</a>
+    <button id="resetData" class="nav-button">Reset local data</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <div class="eyebrow">FINAL ASSESSMENT ENGINE</div>
+    <h1>Train against your<br><span>actual question banks.</span></h1>
+    <p>Upload a DOCX or JSON question bank, choose an assessment mode, take your test, and get an answer-by-answer diagnostic review.</p>
+  </div>
+  <div class="hero-stat">
+    <strong id="questionCount">0</strong>
+    <span>questions loaded</span>
+    <div class="stat-line"></div>
+    <small>Best score <b id="bestScore">—</b></small>
+  </div>
+</section>
+
+<section id="assessments" class="section">
+  <div class="section-label">ASSESSMENT MODES</div>
+  <h2>Choose your battlefield.</h2>
+  <div class="assessment-grid">
+    <article class="assessment-card">
+      <span class="card-number">01</span><h3>Full Final<br>Assessment</h3>
+      <p>60 questions from the complete loaded question bank. A realistic final simulation.</p>
+      <button class="start-mode" data-mode="full">Start assessment <span>→</span></button>
+    </article>
+    <article class="assessment-card">
+      <span class="card-number">02</span><h3>Single Answer</h3>
+      <p>Practice questions with exactly one correct answer and immediate feedback.</p>
+      <button class="start-mode" data-mode="single">Start assessment <span>→</span></button>
+    </article>
+    <article class="assessment-card">
+      <span class="card-number">03</span><h3>Multiple Answer</h3>
+      <p>Practice questions where more than one option can be correct.</p>
+      <button class="start-mode" data-mode="multiple">Start assessment <span>→</span></button>
+    </article>
+    <article class="assessment-card">
+      <span class="card-number">04</span><h3>Random<br>Practice</h3>
+      <p>Build a mixed practice test from the questions you have uploaded.</p>
+      <button class="start-mode" data-mode="random">Start assessment <span>→</span></button>
+    </article>
+  </div>
+</section>
+
+<section id="question-bank" class="section lower-section">
+  <div class="section-label">QUESTION BANK</div>
+  <div class="split-heading">
+    <div><h2>Load your own questions.</h2><p>DOCX and JSON are supported. Your files stay in this browser.</p></div>
+    <div class="loaded-stat"><strong id="loadedStat">0</strong><span>questions ready</span></div>
+  </div>
+  <div class="upload-box" id="dropZone">
+    <div class="upload-symbol">↑</div>
+    <h3>Drop your question bank here</h3>
+    <p>or choose a <b>.docx</b> or <b>.json</b> file</p>
+    <button id="chooseFile">Choose file</button>
+    <input id="fileInput" type="file" accept=".docx,.json" hidden>
+    <div id="uploadStatus"></div>
+  </div>
+  <div class="sample-row">
+    <span>Don't have a file yet?</span>
+    <button id="sampleBtn">Load sample question bank →</button>
+    <button id="templateBtn" class="plain-btn">Download JSON template</button>
+  </div>
+</section>
+
+<section class="section bank-preview hidden" id="bankPreview">
+  <div class="section-label">IMPORTED QUESTIONS</div>
+  <div class="split-heading"><div><h2>Question bank preview.</h2><p>Confirm that your questions were extracted correctly.</p></div><button class="dark-btn" id="previewStart">Start quiz →</button></div>
+  <div id="previewList"></div>
+</section>
+
+<section id="notes" class="section notes-section">
+  <div class="section-label">NOTES</div>
+  <h2>Keep your study material here.</h2>
+  <p>Add short notes, formulas, reminders or revision points. They are saved locally.</p>
+  <textarea id="notesBox" placeholder="Paste your notes here..."></textarea>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="quiz-screen hidden">
+  <div class="quiz-header">
+    <button id="exitQuiz" class="plain-btn">← Exit</button>
+    <div><b id="quizModeTitle">Assessment</b><span id="quizCounter">Question 1 of 10</span></div>
+    <div class="live-score"><small>SCORE</small><strong id="liveScore">0</strong></div>
+  </div>
+  <div class="quiz-progress"><i id="quizProgress"></i></div>
+  <div class="quiz-body">
+    <aside class="question-nav">
+      <div class="nav-title"><b>Questions</b><span id="navCount">0 / 0</span></div>
+      <div id="questionPalette"></div>
+    </aside>
+    <article class="question-panel">
+      <div class="question-meta"><span id="questionType">SINGLE ANSWER</span><span id="questionNo">Q01</span></div>
+      <h1 id="questionText"></h1>
+      <p id="questionHint"></p>
+      <div id="options"></div>
+      <div id="feedback" class="feedback hidden"></div>
+      <div class="question-actions">
+        <button id="prevQuestion" class="plain-btn">← Previous</button>
+        <button id="nextQuestion" class="dark-btn" disabled>Next →</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="result-screen hidden">
+  <div class="section-label">ASSESSMENT COMPLETE</div>
+  <h1 id="resultHeading">Your result.</h1>
+  <div class="result-card">
+    <div><small>MARKS</small><strong id="resultMarks">0 / 0</strong></div>
+    <div><small>PERCENTAGE</small><strong id="resultPercent">0%</strong></div>
+    <div><small>CORRECT</small><strong id="resultCorrect">0</strong></div>
+    <div><small>WRONG</small><strong id="resultWrong">0</strong></div>
+  </div>
+  <div class="result-actions"><button class="plain-btn" id="resultHome">← Home</button><button class="dark-btn" id="resultReview">Detailed review →</button></div>
+</section>
+
+<!-- REVIEW -->
+<section id="review" class="review-screen hidden">
+  <div class="split-heading"><div><div class="section-label">DETAILED REVIEW</div><h1>Every answer, explained.</h1></div><button class="dark-btn" id="reviewHome">Done</button></div>
+  <div id="reviewList"></div>
+</section>
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "question": "What is Snowpipe?",
+      "type": "single",
+      "options": [
+        "Continuous loading",
+        "BI dashboard",
+        "Database role",
+        "Python package"
+      ],
+      "answer": [
+        "A"
+      ],
+      "explanation": "Snowpipe is designed for continuous loading."
+    },
+    {
+      "question": "Which are Snowflake features?",
+      "type": "multiple",
+      "options": [
+        "Streams",
+        "Tasks",
+        "Photoshop",
+        "Stages"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "explanation": "Streams, Tasks and Stages are Snowflake features."
+    }
+  ]
+}
