@@ -1,4 +1,4 @@
-# KineticQuiz — Screenshot-style version
+# KineticQuiz — 
 
 This version intentionally follows the visual structure of the supplied KineticQuiz screenshot:
 - compact top navigation
